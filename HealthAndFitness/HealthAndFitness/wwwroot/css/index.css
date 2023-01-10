@@ -1,4 +1,11 @@
-﻿/* Title elements */
+﻿:root {
+    --red-clr: #d01919;
+    --white-text-clr: #f0f0f0;
+    --welcome-section-bcg-clr: #ffffff;
+    --coaches-section-bcg-clr: #efefef;
+}
+
+/* Title elements */
 .title-text {
     text-align: center;
     position: absolute;
@@ -18,8 +25,8 @@
 }
 
 .title-text .button {
-    background-color: #d01919;
-    color: #f0f0f0;
+    background-color: var(--red-clr);
+    color: var(--white-text-clr);
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 25px;
@@ -33,7 +40,7 @@
 .welcome-section {
     width: 100%;
     height: 300px;
-    background-color: #ffffff;
+    background-color: var(--welcome-section-bcg-clr);
 }
 
 .welcome-section h1 {
@@ -62,7 +69,7 @@
 }
 
 .welcome-section .card-container .card .card-heading {
-    color: #d01919;
+    color: var(--red-clr);
     font-size: 20px;
 }
 
@@ -74,7 +81,7 @@
 .coaches-section {
     width: 100%;
     height: 500px;
-    background-color: #efefef;
+    background-color: var(--coaches-section-bcg-clr);
 }
 
 .coaches-section h1 {
@@ -103,5 +110,5 @@
 }
 
 .coaches-section .card-container .card .fitness-type {
-    color: #d01919;
+    color: var(--red-clr);
 }
