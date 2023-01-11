@@ -7,30 +7,28 @@
     font-size: 20px;
 }
 
-form.form{
+form.form {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:10px;
+    gap: 10px;
 }
 
-.input-field input{
-    width:300px;
+.input-field input {
+    width: 300px;
     height: 25px;
 }
 
-button.login-btn{
+button.register-btn {
     background-color: forestgreen;
     color: white;
     width: 100px;
     height: 40px;
-    margin-top:15px;
+    margin-top: 15px;
     font-size: 15px;
 }
 
-h1.login-title {
+h1.register-title {
     margin-bottom: 15px;
 }
-
-

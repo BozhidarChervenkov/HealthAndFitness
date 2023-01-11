@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,14 +16,16 @@
 <body>
     <header class="header">
         <nav class="navigation">
+
             <div class="navigation-logo">
                 <span class="big-heading">Health&fitness</span>
                 <span class="straight-line">|</span>
                 <span class="small-heading">BY TEMPLATED</span>
             </div>
+
             <ul class="navigation-list">
                 <li>
-                    <a class="active" href="">HOMEPAGE</a>
+                    <a class="active" asp-controller="Home" asp-action="Index">HOMEPAGE</a>
                 </li>
                 <li>
                     <a href="">OUR CLIENTS</a>
@@ -32,6 +35,7 @@
                 </li>
                 <partial name="_LoginPartial" />
             </ul>
+
         </nav>
     </header>
 

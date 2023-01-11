@@ -12,8 +12,9 @@
 <form class="form" id="account" method="post">
     <h1 class="login-title">Login:</h1>
 
-    <label asp-for="Input.Email"></label>
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <label asp-for="Input.Email"></label>
     <div class="input-field">
         <input asp-for="Input.Email" autocomplete="username" aria-required="true" />
         <span asp-validation-for="Input.Email" class="text-danger"></span>
@@ -32,9 +33,7 @@
         </label>
     </div>
 
-    <div>
-        <button class="login-btn" type="submit">Log in</button>
-    </div>
+    <button class="login-btn" type="submit">Log in</button>
 </form>
 
 @section Scripts {
