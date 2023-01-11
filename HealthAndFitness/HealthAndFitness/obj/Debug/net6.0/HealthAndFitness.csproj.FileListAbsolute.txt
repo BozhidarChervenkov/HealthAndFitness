@@ -68,3 +68,8 @@ D:\Web Projects\HealthAndFitness\HealthAndFitness\HealthAndFitness\obj\Debug\net
 D:\Web Projects\HealthAndFitness\HealthAndFitness\HealthAndFitness\obj\Debug\net6.0\HealthAndFitness.pdb
 D:\Web Projects\HealthAndFitness\HealthAndFitness\HealthAndFitness\obj\Debug\net6.0\HealthAndFitness.genruntimeconfig.cache
 D:\Web Projects\HealthAndFitness\HealthAndFitness\HealthAndFitness\obj\Debug\net6.0\ref\HealthAndFitness.dll
+D:\Web Projects\HealthAndFitness\HealthAndFitness\HealthAndFitness\obj\Debug\net6.0\staticwebassets\msbuild.HealthAndFitness.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Web Projects\HealthAndFitness\HealthAndFitness\HealthAndFitness\obj\Debug\net6.0\staticwebassets\msbuild.build.HealthAndFitness.props
+D:\Web Projects\HealthAndFitness\HealthAndFitness\HealthAndFitness\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.HealthAndFitness.props
+D:\Web Projects\HealthAndFitness\HealthAndFitness\HealthAndFitness\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.HealthAndFitness.props
+D:\Web Projects\HealthAndFitness\HealthAndFitness\HealthAndFitness\obj\Debug\net6.0\staticwebassets.pack.json

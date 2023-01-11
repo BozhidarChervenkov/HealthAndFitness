@@ -12,7 +12,7 @@
     bottom: 80px;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #f0f0f0;
+    color: var(--white-text-clr);
 }
 
 .title-text .heading {
