@@ -1,0 +1,35 @@
+﻿form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+}
+
+form.form{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+
+.input-field input{
+    width:300px;
+    height: 25px;
+}
+
+button.login-btn{
+    background-color: forestgreen;
+    color: white;
+    width: 100px;
+    height: 40px;
+    margin-top:15px;
+}
+
+h1.login-title {
+    margin-bottom: 15px;
+}
+
+
