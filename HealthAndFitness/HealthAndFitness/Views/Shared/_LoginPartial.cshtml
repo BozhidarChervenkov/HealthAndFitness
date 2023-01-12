@@ -5,12 +5,10 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li>
-        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+        <a title="Manage">Hello @((await UserManager.GetUserAsync(User)).FirstName)!</a>
     </li>
     <li>
-        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
+        <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">Logout</a>
     </li>
 }
 else

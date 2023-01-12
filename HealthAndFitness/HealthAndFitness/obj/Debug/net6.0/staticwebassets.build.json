@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0/9TkhrTAkBVcDkx9o/UtZ/kXIMSSQpbN8JKTbK9RKA=",
+  "Hash": "xe8r/qw/ZgO8COcLS9KLBcuvoRyla1rsOHALw/ShQzM=",
   "Source": "HealthAndFitness",
   "BasePath": "_content/HealthAndFitness",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\logout.css",
+      "SourceId": "HealthAndFitness",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\",
+      "BasePath": "_content/HealthAndFitness",
+      "RelativePath": "css/logout.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\logout.css"
     },
     {
       "Identity": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\register.css",
