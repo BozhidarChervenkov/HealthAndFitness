@@ -5,20 +5,24 @@
       "PackagePath": "staticwebassets\\HealthAndFitness.bundle.scp.css"
     },
     {
-      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\index.css",
-      "PackagePath": "staticwebassets\\css\\index.css"
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Authorization\\login.css",
+      "PackagePath": "staticwebassets\\css\\Authorization\\login.css"
     },
     {
-      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\login.css",
-      "PackagePath": "staticwebassets\\css\\login.css"
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Authorization\\logout.css",
+      "PackagePath": "staticwebassets\\css\\Authorization\\logout.css"
     },
     {
-      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\logout.css",
-      "PackagePath": "staticwebassets\\css\\logout.css"
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Authorization\\register.css",
+      "PackagePath": "staticwebassets\\css\\Authorization\\register.css"
     },
     {
-      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\register.css",
-      "PackagePath": "staticwebassets\\css\\register.css"
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Exercises\\ByMuscleGroup.css",
+      "PackagePath": "staticwebassets\\css\\Exercises\\ByMuscleGroup.css"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Home\\index.css",
+      "PackagePath": "staticwebassets\\css\\Home\\index.css"
     },
     {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\site.css",
@@ -27,6 +31,42 @@
     {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\abs-muscle.jpg",
+      "PackagePath": "staticwebassets\\images\\MuscleGroups\\abs-muscle.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\back-muscle.jpg",
+      "PackagePath": "staticwebassets\\images\\MuscleGroups\\back-muscle.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\bicep-muscle.jpg",
+      "PackagePath": "staticwebassets\\images\\MuscleGroups\\bicep-muscle.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\calf-muscle.jpg",
+      "PackagePath": "staticwebassets\\images\\MuscleGroups\\calf-muscle.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\chest-muscle.jpeg",
+      "PackagePath": "staticwebassets\\images\\MuscleGroups\\chest-muscle.jpeg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\forearm-musle.jpg",
+      "PackagePath": "staticwebassets\\images\\MuscleGroups\\forearm-musle.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\legs-muscle.jpg",
+      "PackagePath": "staticwebassets\\images\\MuscleGroups\\legs-muscle.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\shoulder-muscle.jpg",
+      "PackagePath": "staticwebassets\\images\\MuscleGroups\\shoulder-muscle.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\tricep-muscle.jpg",
+      "PackagePath": "staticwebassets\\images\\MuscleGroups\\tricep-muscle.jpg"
     },
     {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\fitness-main.jpg",

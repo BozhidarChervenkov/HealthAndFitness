@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HealthAndFitness</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/logout.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -29,7 +25,10 @@
                     <a class="active" asp-controller="Home" asp-action="Index">HOMEPAGE</a>
                 </li>
                 <li>
-                    <a href="">OUR CLIENTS</a>
+                    <a asp-controller="Exercises" asp-action="ByMuscleGroup">EXERCISES</a>
+                </li>
+                <li>
+                    <a href="">VIDEOS</a>
                 </li>
                 <partial name="_LoginPartial" />
             </ul>
