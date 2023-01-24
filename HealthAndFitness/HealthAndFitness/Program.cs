@@ -1,5 +1,6 @@
 using HealthAndFitness.Data;
 using HealthAndFitness.Models;
+using HealthAndFitness.Services.Exercises;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +23,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IExerciseService, ExerciseService>();
 
 var app = builder.Build();
 

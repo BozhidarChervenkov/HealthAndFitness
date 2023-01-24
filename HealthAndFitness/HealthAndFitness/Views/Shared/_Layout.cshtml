@@ -25,6 +25,9 @@
                     <a class="active" asp-controller="Home" asp-action="Index">HOMEPAGE</a>
                 </li>
                 <li>
+                    <a  asp-controller="Exercises" asp-action="Create">CREATE EXERCISE</a>
+                </li>
+                <li>
                     <a asp-controller="Exercises" asp-action="ByMuscleGroup">EXERCISES</a>
                 </li>
                 <li>
@@ -44,9 +47,9 @@
         <p>All rights reserved. In Partnership with SoftUni.</p>
     </footer>
 
-    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

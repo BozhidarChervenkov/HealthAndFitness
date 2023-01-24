@@ -14,7 +14,6 @@
         [MaxLength(ImageUrlMaxLenght)]
         public string Url { get; set; }
 
-        [Required]
         public int ExerciseId { get; set; }
 
         public Exercise Exercise { get; set; }

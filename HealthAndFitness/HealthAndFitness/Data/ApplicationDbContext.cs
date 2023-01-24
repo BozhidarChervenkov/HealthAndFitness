@@ -13,5 +13,13 @@
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+        public DbSet<Exercise> Exercises { get; set; }
+
+        public DbSet<MuscleGroup> MuscleGroups { get; set; }
+
+        public DbSet<Image> Images { get; set; }
+
+        public DbSet<Video> Videos{ get; set; }
     }
 }
