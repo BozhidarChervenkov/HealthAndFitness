@@ -32,10 +32,10 @@
         [HttpPost]
         public IActionResult Create(CreateExerciseInputModel inputModel)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return this.View(inputModel);
-            //}
+            if (!ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
 
             var userId = this.userManager.GetUserId(this.User);
 

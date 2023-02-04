@@ -12,6 +12,9 @@
 <div class="container">
     <form form asp-controller="Exercises" asp-action="Create" method="post">
 
+        <h1>Create Exercise:</h1>
+        <hr>
+
         <div>
             <label asp-for="Name">Name</label>
             <input type="text" asp-for="Name" placeholder="Exercise name...">
@@ -31,19 +34,19 @@
             </select>
         </div>
 
-        <div id="ExerciseImagesContainer">
-            <label asp-for="Images"></label>
-            <a onclick="AddMoreUrls()"><i class="fas fa-plus"></i></a>
-        </div>
-
         <div>
             <label asp-for="Description">Description</label>
-            <textarea asp-for="Description" placeholder="Write description here..." style="height:200px"></textarea>
+            <textarea asp-for="Description" placeholder="Write description here..." style="height:50px"></textarea>
             <span asp-validation-for="Description" class="text-danger" />
         </div>
 
-        <input type="submit" value="Submit">
+        <div id="ExerciseImagesContainer">
+            <a onclick="AddMoreUrls()"><i class="fas fa-plus"></i>Add image URL here</a>
+        </div>
 
+        <input class="submit-btn" type="submit" value="Submit">
+
+        <hr>
     </form>
 </div>
 
@@ -55,7 +58,7 @@
         var urlIndex = 0;
 
         function AddMoreUrls() {
-            $("#ExerciseImagesContainer").append("<div>Url:<input type='text' name='Images["+ urlIndex +"].Url' id='' /></div>");
+            $("#ExerciseImagesContainer").append("<div>Url:<input type='text' name='Images[" + urlIndex + "].Url' id='' /></div>");
             urlIndex++;
         }
     </script>

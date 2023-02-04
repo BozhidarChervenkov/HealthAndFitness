@@ -1,5 +1,6 @@
 ﻿namespace HealthAndFitness.ViewModels.Exercises
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     
     using HealthAndFitness.Models;
@@ -18,6 +19,7 @@
         public string Description { get; set; }
 
         [Required]
+        [DisplayName("Muscle Group")]
         public int MuscleGroupId { get; set; }
 
         [Required]

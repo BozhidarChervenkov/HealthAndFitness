@@ -20,14 +20,25 @@ input[type=submit] {
     cursor: pointer;
 }
 
-/* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-    background-color: #45a049;
-}
+    /* When moving the mouse over the submit button, add a darker green color */
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
 
 /* Add a background color and some padding around the form */
 .container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 30px;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
     padding: 20px;
+}
+
+.submit-btn {
+    margin-top: 10px;
 }
