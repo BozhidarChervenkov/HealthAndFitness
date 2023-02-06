@@ -77,6 +77,10 @@
       "PackagePath": "staticwebassets\\images\\MuscleGroups\\tricep-muscle.jpg"
     },
     {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\fitness-inventory.jpg",
+      "PackagePath": "staticwebassets\\images\\fitness-inventory.jpg"
+    },
+    {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\fitness-main.jpg",
       "PackagePath": "staticwebassets\\images\\fitness-main.jpg"
     },
@@ -91,6 +95,22 @@
     {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\perkins.jpg",
       "PackagePath": "staticwebassets\\images\\perkins.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\shreaded-back-girl.jpg",
+      "PackagePath": "staticwebassets\\images\\shreaded-back-girl.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\training-girl.jpg",
+      "PackagePath": "staticwebassets\\images\\training-girl.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\training-man.jpg",
+      "PackagePath": "staticwebassets\\images\\training-man.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\yoga-girl.jpg",
+      "PackagePath": "staticwebassets\\images\\yoga-girl.jpg"
     },
     {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\js\\site.js",
