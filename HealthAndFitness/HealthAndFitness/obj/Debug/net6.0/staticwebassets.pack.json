@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\Authorization\\register.css"
     },
     {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Exercises\\AllByMuscleGroup.css",
+      "PackagePath": "staticwebassets\\css\\Exercises\\AllByMuscleGroup.css"
+    },
+    {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Exercises\\ByMuscleGroup.css",
       "PackagePath": "staticwebassets\\css\\Exercises\\ByMuscleGroup.css"
     },

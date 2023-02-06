@@ -8,6 +8,8 @@
     {
         int Create(CreateExerciseInputModel inputModel, string userId);
 
+        ExerciseListViewModel GetExercisesByMuscleGroup(int muscleGroupId);
+
         SelectList MuscleGroupsSelectList();
     }
 }

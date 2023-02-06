@@ -35,6 +35,34 @@ namespace HealthAndFitness.Services.Exercises
 
             return exercise.Id;
         }
+        public ExerciseListViewModel GetExercisesByMuscleGroup(int muscleGroupId)
+        {
+            var muscleGroupName = this.context.MuscleGroups
+                .Where(m => m.Id == muscleGroupId)
+                .Select(m => m.Name)
+                .FirstOrDefault();
+
+            var exercisesInList = this.context.Exercises
+                .Where(e => e.MuscleGroupId == muscleGroupId)
+                .Select(e => new ExerciseInListViewModel
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    Description = e.Description,
+                    AddedByUsername = e.AddedByUser.UserName,
+                    CreatedOn = e.CreatedOn,
+                    ImageUrl = e.Images.First().Url
+                })
+                .ToList();
+
+            var exerciseListViewModel = new ExerciseListViewModel
+            {
+                Exercises = exercisesInList,
+                MuscleGroupName = muscleGroupName
+            };
+
+            return exerciseListViewModel;
+        }
 
         public SelectList MuscleGroupsSelectList()
         {
@@ -44,5 +72,6 @@ namespace HealthAndFitness.Services.Exercises
 
             return selectList;
         }
+
     }
 }

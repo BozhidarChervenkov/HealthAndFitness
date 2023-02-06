@@ -23,7 +23,7 @@
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.MuscleGroupsSelectList = exerciseService.MuscleGroupsSelectList();
+            ViewBag.MuscleGroupsSelectList = this.exerciseService.MuscleGroupsSelectList();
 
             return this.View();
         }
@@ -44,9 +44,18 @@
             return this.RedirectToAction("ExerciseById", "Exercises", new { id = exerciseId });
         }
 
+        [HttpGet]
         public IActionResult ByMuscleGroup()
         {
             return this.View();
+        }
+
+        [HttpGet]
+        public IActionResult AllByMuscleGroup(int muscleGroupId)
+        {
+            var exercises = this.exerciseService.GetExercisesByMuscleGroup(muscleGroupId);
+
+            return this.View(exercises);
         }
     }
 }
