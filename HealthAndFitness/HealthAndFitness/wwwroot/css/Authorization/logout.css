@@ -1,4 +1,11 @@
-﻿.logout-title {
+﻿body {
+    background-image: url('../../images/fitness-main.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.logout-title {
     position: absolute;
     width: 600px;
     top: 35%;

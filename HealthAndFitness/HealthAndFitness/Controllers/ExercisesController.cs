@@ -1,13 +1,13 @@
 ﻿namespace HealthAndFitness.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
     using HealthAndFitness.Models;
-    using HealthAndFitness.ViewModels.Exercises;
     using HealthAndFitness.Services.Exercises;
-    using Microsoft.AspNetCore.Authorization;
-
+    using HealthAndFitness.ViewModels.Exercises;
+    
     public class ExercisesController : Controller
     {
         private readonly IExerciseService exerciseService;
@@ -32,10 +32,10 @@
         [HttpPost]
         public IActionResult Create(CreateExerciseInputModel inputModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return this.View(inputModel);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return this.View(inputModel);
+            //}
 
             var userId = this.userManager.GetUserId(this.User);
 

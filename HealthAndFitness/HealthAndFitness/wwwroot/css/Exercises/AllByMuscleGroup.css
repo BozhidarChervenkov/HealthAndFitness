@@ -1,6 +1,12 @@
-﻿html, body, main {
-    height: 100%;
-    background-color: azure;
+﻿body{
+    background-image: url('../../images/fitness-main.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.title{
+    color: white;
 }
 
 .card-container {
@@ -44,6 +50,12 @@
 .details-button, .add-button {
     width: 150px;
     height: 40px;
+    font-size: 17px;
+    border-style: none;
+    border-radius: 10px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    text-decoration: none;
+    color: black;
 }
 
 .details-button {

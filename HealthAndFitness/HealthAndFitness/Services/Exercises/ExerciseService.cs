@@ -1,10 +1,11 @@
-﻿using HealthAndFitness.Data;
-using HealthAndFitness.Models;
-using HealthAndFitness.ViewModels.Exercises;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace HealthAndFitness.Services.Exercises
+﻿namespace HealthAndFitness.Services.Exercises
 {
+    using Microsoft.AspNetCore.Mvc.Rendering;
+
+    using HealthAndFitness.Data;
+    using HealthAndFitness.Models;
+    using HealthAndFitness.ViewModels.Exercises;
+
     public class ExerciseService : IExerciseService
     {
         private readonly ApplicationDbContext context;
@@ -48,7 +49,6 @@ namespace HealthAndFitness.Services.Exercises
                 {
                     Id = e.Id,
                     Name = e.Name,
-                    Description = e.Description,
                     AddedByUsername = e.AddedByUser.UserName,
                     CreatedOn = e.CreatedOn,
                     ImageUrl = e.Images.First().Url
@@ -72,6 +72,5 @@ namespace HealthAndFitness.Services.Exercises
 
             return selectList;
         }
-
     }
 }

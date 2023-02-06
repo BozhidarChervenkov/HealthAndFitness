@@ -1,4 +1,11 @@
-﻿form {
+﻿body {
+    background-image: url('../../images/fitness-main.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+form {
     position: absolute;
     top: 50%;
     left: 50%;

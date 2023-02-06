@@ -8,8 +8,6 @@
 
         public string Name { get; set; }
 
-        public string Description { get; set; }
-
         public int MuscleGroupId { get; set; }
 
         public string AddedByUsername { get; set; }

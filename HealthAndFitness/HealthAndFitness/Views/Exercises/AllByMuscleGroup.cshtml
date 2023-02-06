@@ -6,7 +6,7 @@
 }
 
 <div class="card-container">
-    <h1>@Model.MuscleGroupName exercises:</h1>
+    <h1 class="title">@Model.MuscleGroupName exercises:</h1>
     <hr>
     @foreach (var exercise in this.Model.Exercises)
     {
@@ -17,8 +17,8 @@
                 <div><strong>Created on: </strong>@exercise.CreatedOn</div>
                 <div><strong>Added by: </strong>@exercise.AddedByUsername</div>
                 <div class="card-buttons">
-                    <button class="details-button">Check it out</button>
-                    <button class="add-button">Add to your plan</button>
+                    <a asp-controller="Exercises" asp-action="ById" asp-route-exerciseId="@exercise.Id" class="details-button">Check it out</a>
+                    <a class="add-button">Add to your plan</a>
                 </div>
             </div>
         </div>
