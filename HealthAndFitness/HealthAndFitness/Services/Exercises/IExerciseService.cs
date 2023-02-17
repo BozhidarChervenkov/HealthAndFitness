@@ -6,10 +6,10 @@
 
     public interface IExerciseService
     {
-        int Create(CreateExerciseInputModel inputModel, string userId);
+        Task<int> Create(CreateExerciseInputModel inputModel, string userId);
 
-        ExerciseListViewModel GetExercisesByMuscleGroup(int muscleGroupId);
+        Task<ExerciseListViewModel> GetExercisesByMuscleGroup(int muscleGroupId);
 
-        SelectList MuscleGroupsSelectList();
+        Task<SelectList> MuscleGroupsSelectList();
     }
 }

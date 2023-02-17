@@ -21,16 +21,16 @@
 
         [Authorize]
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewBag.MuscleGroupsSelectList = this.exerciseService.MuscleGroupsSelectList();
+            ViewBag.MuscleGroupsSelectList = await this.exerciseService.MuscleGroupsSelectList();
 
             return this.View();
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult Create(CreateExerciseInputModel inputModel)
+        public async Task<IActionResult> Create(CreateExerciseInputModel inputModel)
         {
             //if (!ModelState.IsValid)
             //{
@@ -39,7 +39,7 @@
 
             var userId = this.userManager.GetUserId(this.User);
 
-            var exerciseId = this.exerciseService.Create(inputModel, userId);
+            var exerciseId = await this.exerciseService.Create(inputModel, userId);
 
             return this.RedirectToAction("ExerciseById", "Exercises", new { id = exerciseId });
         }
@@ -51,9 +51,9 @@
         }
 
         [HttpGet]
-        public IActionResult AllByMuscleGroup(int muscleGroupId)
+        public async Task<IActionResult> AllByMuscleGroup(int muscleGroupId)
         {
-            var exercises = this.exerciseService.GetExercisesByMuscleGroup(muscleGroupId);
+            var exercises = await this.exerciseService.GetExercisesByMuscleGroup(muscleGroupId);
 
             return this.View(exercises);
         }

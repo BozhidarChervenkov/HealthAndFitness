@@ -1,5 +1,6 @@
 ﻿namespace HealthAndFitness.Services.Exercises
 {
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.AspNetCore.Mvc.Rendering;
 
     using HealthAndFitness.Data;
@@ -15,7 +16,7 @@
             this.context = context;
         }
 
-        public int Create(CreateExerciseInputModel inputModel, string userId)
+        public async Task<int> Create(CreateExerciseInputModel inputModel, string userId)
         {
             var exercise = new Exercise()
             {
@@ -31,19 +32,19 @@
                 Images = inputModel.Images,
             };
 
-            this.context.Exercises.Add(exercise);
-            this.context.SaveChanges();
+            await this.context.Exercises.AddAsync(exercise);
+            await this.context.SaveChangesAsync();
 
             return exercise.Id;
         }
-        public ExerciseListViewModel GetExercisesByMuscleGroup(int muscleGroupId)
+        public async Task<ExerciseListViewModel> GetExercisesByMuscleGroup(int muscleGroupId)
         {
-            var muscleGroupName = this.context.MuscleGroups
+            var muscleGroupName = await this.context.MuscleGroups
                 .Where(m => m.Id == muscleGroupId)
                 .Select(m => m.Name)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
-            var exercisesInList = this.context.Exercises
+            var exercisesInList = await this.context.Exercises
                 .Where(e => e.MuscleGroupId == muscleGroupId)
                 .Select(e => new ExerciseInListViewModel
                 {
@@ -53,20 +54,20 @@
                     CreatedOn = e.CreatedOn,
                     ImageUrl = e.Images.First().Url
                 })
-                .ToList();
+                .ToListAsync();
 
             var exerciseListViewModel = new ExerciseListViewModel
             {
                 Exercises = exercisesInList,
-                MuscleGroupName = muscleGroupName
+                MuscleGroupName = muscleGroupName!
             };
 
             return exerciseListViewModel;
         }
 
-        public SelectList MuscleGroupsSelectList()
+        public async Task<SelectList> MuscleGroupsSelectList()
         {
-            var muscleGroupsTypes = this.context.MuscleGroups.OrderBy(bt => bt.Name).ToList();
+            var muscleGroupsTypes = await this.context.MuscleGroups.OrderBy(bt => bt.Name).ToListAsync();
 
             var selectList = new SelectList(muscleGroupsTypes, "Id", "Name");
 
