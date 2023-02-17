@@ -37,6 +37,27 @@
 
             return exercise.Id;
         }
+
+        public async Task<ExerciseByIdViewModel> GetExerciseById(int exerciseId)
+        {
+            var viewModel = await this.context.Exercises
+                .Where(e => e.Id == exerciseId)
+                .Select(e => new ExerciseByIdViewModel
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    Description = e.Description,
+                    MuscleGroupName = e.MuscleGroup.Name,
+                    VideoUrl = e.Video.Url,
+                    AddedByUser = e.AddedByUser,
+                    CreatedOn = e.CreatedOn,
+                    Images = e.Images
+                })
+                .FirstOrDefaultAsync();
+
+            return viewModel;
+        }
+
         public async Task<ExerciseListViewModel> GetExercisesByMuscleGroup(int muscleGroupId)
         {
             var muscleGroupName = await this.context.MuscleGroups

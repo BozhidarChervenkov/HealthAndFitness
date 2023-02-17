@@ -7,7 +7,7 @@
     using HealthAndFitness.Models;
     using HealthAndFitness.Services.Exercises;
     using HealthAndFitness.ViewModels.Exercises;
-    
+
     public class ExercisesController : Controller
     {
         private readonly IExerciseService exerciseService;
@@ -42,6 +42,14 @@
             var exerciseId = await this.exerciseService.Create(inputModel, userId);
 
             return this.RedirectToAction("ExerciseById", "Exercises", new { id = exerciseId });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ById (int exerciseId)
+        {
+            var viewModel = await this.exerciseService.GetExerciseById(exerciseId);
+
+            return this.View(viewModel);
         }
 
         [HttpGet]

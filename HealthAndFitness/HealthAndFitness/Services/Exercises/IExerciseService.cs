@@ -8,6 +8,8 @@
     {
         Task<int> Create(CreateExerciseInputModel inputModel, string userId);
 
+        Task<ExerciseByIdViewModel> GetExerciseById(int exerciseId);
+
         Task<ExerciseListViewModel> GetExercisesByMuscleGroup(int muscleGroupId);
 
         Task<SelectList> MuscleGroupsSelectList();

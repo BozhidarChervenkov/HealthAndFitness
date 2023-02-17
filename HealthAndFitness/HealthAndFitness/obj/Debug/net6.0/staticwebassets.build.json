@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GxkoKKv4qTxx6zDOf/t+Z9oblS/kT/EtfehqyIPaLlU=",
+  "Hash": "DmPIcQic5ZbrRHUgg+9HzbMR9/B4UM5bkF/ZojV0t54=",
   "Source": "HealthAndFitness",
   "BasePath": "_content/HealthAndFitness",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Exercises\\AllByMuscleGroup.css"
+    },
+    {
+      "Identity": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Exercises\\ById.css",
+      "SourceId": "HealthAndFitness",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\",
+      "BasePath": "_content/HealthAndFitness",
+      "RelativePath": "css/Exercises/ById.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Exercises\\ById.css"
     },
     {
       "Identity": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Exercises\\ByMuscleGroup.css",
