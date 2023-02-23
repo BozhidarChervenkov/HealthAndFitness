@@ -48,7 +48,7 @@
                     Name = e.Name,
                     Description = e.Description,
                     MuscleGroupName = e.MuscleGroup.Name,
-                    VideoUrl = e.Video.Url,
+                    EmbeddedVideoCode = EmbeddedVideoCode(e.Video.Url),
                     AddedByUser = e.AddedByUser,
                     CreatedOn = e.CreatedOn,
                     Images = e.Images
@@ -93,6 +93,14 @@
             var selectList = new SelectList(muscleGroupsTypes, "Id", "Name");
 
             return selectList;
+        }
+
+        private static string EmbeddedVideoCode(string videoUrl)
+        {
+            int position = videoUrl.IndexOf("=") + 1;
+            var embeddedCode = videoUrl.Substring(position, 11);
+
+            return embeddedCode;
         }
     }
 }

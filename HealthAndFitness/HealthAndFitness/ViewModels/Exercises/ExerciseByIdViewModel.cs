@@ -12,9 +12,11 @@
 
         public string MuscleGroupName { get; set; }
 
-        public string VideoUrl { get; set; }
+        public string EmbeddedVideoCode { get; set; }
 
         public ApplicationUser AddedByUser { get; set; }
+
+        public string CurrentUserId { get; set; }
 
         public DateTime CreatedOn { get; set; }
 

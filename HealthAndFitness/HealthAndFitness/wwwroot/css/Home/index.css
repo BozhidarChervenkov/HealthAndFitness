@@ -9,7 +9,7 @@
 .title-text {
     text-align: center;
     position: absolute;
-    bottom: 80px;
+    bottom: 9rem;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--white-text-clr);
@@ -27,6 +27,7 @@
 .title-text .button {
     background-color: var(--red-clr);
     color: var(--white-text-clr);
+    text-decoration:none;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 25px;

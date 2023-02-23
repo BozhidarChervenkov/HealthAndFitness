@@ -7,6 +7,7 @@
     using HealthAndFitness.Models;
     using HealthAndFitness.Services.Exercises;
     using HealthAndFitness.ViewModels.Exercises;
+    using System.Security.Claims;
 
     public class ExercisesController : Controller
     {
@@ -48,6 +49,9 @@
         public async Task<IActionResult> ById (int exerciseId)
         {
             var viewModel = await this.exerciseService.GetExerciseById(exerciseId);
+
+            var currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            viewModel.CurrentUserId= currentUserId;
 
             return this.View(viewModel);
         }

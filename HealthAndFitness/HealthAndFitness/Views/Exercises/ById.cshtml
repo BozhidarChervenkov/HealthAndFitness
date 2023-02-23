@@ -26,6 +26,18 @@
     <br />
 </div>
 
+<div class="exercise-video">
+    @{
+        string path = "https://www.youtube.com/embed/" + Model.EmbeddedVideoCode;
+    }
+    <iframe width="850" height="450"
+            src="@path"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+</div>
+
 <div class="exercise-content">
     <div class="content-box">
         <strong class="content-title">Description:</strong>
@@ -42,21 +54,18 @@
     </div>
 
     <div class="content-box">
-        <strong class="content-title">Created on:</strong>
-        <div>
-            @Model.CreatedOn
-        </div>
-    </div>
-
-    <div class="content-box">
         <strong class="content-title">Added by:</strong>
         <div>
             @Model.AddedByUser.FirstName @Model.AddedByUser.LastName
         </div>
     </div>
-</div>
 
-<div class="exercise-video">
+    <button class="btn-add">Add to your plan</button>
+    @if (Model.CurrentUserId == Model.AddedByUser.Id)
+    {
+        <button class="btn-delete">Delete exercise</button>
+    }
+
 </div>
 
 <hr />
