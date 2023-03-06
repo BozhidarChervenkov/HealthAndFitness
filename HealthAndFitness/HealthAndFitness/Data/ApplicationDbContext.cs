@@ -16,6 +16,8 @@
 
         public DbSet<Exercise> Exercises { get; set; }
 
+        public DbSet<Workout> Workouts { get; set; }
+
         public DbSet<MuscleGroup> MuscleGroups { get; set; }
 
         public DbSet<Image> Images { get; set; }

@@ -36,7 +36,7 @@
                 @if (User.Identity!.IsAuthenticated)
                 {
                     <li>
-                        <a asp-controller="Workouts" asp-action="All">MY WORKOUTS</a>
+                        <a asp-controller="Workouts" asp-action="WorkoutsByUserId">MY WORKOUTS</a>
                     </li>
                 }
                 <partial name="_LoginPartial" />

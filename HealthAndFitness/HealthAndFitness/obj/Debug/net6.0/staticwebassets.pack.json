@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\Home\\index.css"
     },
     {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Workouts\\WorkoutsByUserId.css",
+      "PackagePath": "staticwebassets\\css\\Workouts\\WorkoutsByUserId.css"
+    },
+    {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -79,6 +83,10 @@
     {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\MuscleGroups\\tricep-muscle.jpg",
       "PackagePath": "staticwebassets\\images\\MuscleGroups\\tricep-muscle.jpg"
+    },
+    {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\fitness-background.jpg",
+      "PackagePath": "staticwebassets\\images\\fitness-background.jpg"
     },
     {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\fitness-inventory.jpg",

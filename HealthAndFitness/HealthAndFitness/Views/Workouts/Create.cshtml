@@ -1,0 +1,30 @@
+﻿@model CreateWorkoutInputModel
+
+<link rel="stylesheet" href="~/css/Exercises/CreateExercise.css" asp-append-version="true" />
+@{
+    ViewData["Title"] = "Create workout";
+}
+
+<div class="container">
+    <form form asp-controller="Workouts" asp-action="Create" method="post">
+
+        <h1>Create your workout:</h1>
+        <hr>
+
+        <div>
+            <label asp-for="Name">Name</label>
+            <input type="text" asp-for="Name" placeholder="Workout name...">
+            <span asp-validation-for="Name" class="text-danger" />
+        </div>
+
+        <div>
+            <label asp-for="ImageUrl">Image Url</label>
+            <input type="text" asp-for="ImageUrl" placeholder="Enter image URL here...">
+            <span asp-validation-for="ImageUrl" class="text-danger" />
+        </div>
+
+        <input class="submit-btn" type="submit" value="Submit">
+
+        <hr>
+    </form>
+</div>

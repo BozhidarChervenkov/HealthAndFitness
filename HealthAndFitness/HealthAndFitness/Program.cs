@@ -1,6 +1,7 @@
 using HealthAndFitness.Data;
 using HealthAndFitness.Models;
 using HealthAndFitness.Services.Exercises;
+using HealthAndFitness.Services.Workouts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +26,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IExerciseService, ExerciseService>();
+builder.Services.AddTransient<IWorkoutService, WorkoutService>();
 
 var app = builder.Build();
 

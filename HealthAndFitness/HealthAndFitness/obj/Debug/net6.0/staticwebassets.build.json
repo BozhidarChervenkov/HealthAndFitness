@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DmPIcQic5ZbrRHUgg+9HzbMR9/B4UM5bkF/ZojV0t54=",
+  "Hash": "sVMVgj6TmAL5USJm5guDtzFVwdsiYsq6MuacmjHE6Nc=",
   "Source": "HealthAndFitness",
   "BasePath": "_content/HealthAndFitness",
   "Mode": "Default",
@@ -1224,6 +1224,23 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Workouts\\WorkoutsByUserId.css",
+      "SourceId": "HealthAndFitness",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\",
+      "BasePath": "_content/HealthAndFitness",
+      "RelativePath": "css/Workouts/WorkoutsByUserId.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Workouts\\WorkoutsByUserId.css"
+    },
+    {
       "Identity": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\favicon.ico",
       "SourceId": "HealthAndFitness",
       "SourceType": "Discovered",
@@ -1239,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\fitness-background.jpg",
+      "SourceId": "HealthAndFitness",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\",
+      "BasePath": "_content/HealthAndFitness",
+      "RelativePath": "images/fitness-background.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fitness-background.jpg"
     },
     {
       "Identity": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\images\\fitness-inventory.jpg",

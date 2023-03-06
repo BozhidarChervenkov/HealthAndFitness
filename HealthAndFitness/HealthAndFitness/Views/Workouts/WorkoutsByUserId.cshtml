@@ -1,0 +1,31 @@
+﻿@model WorkoutListViewModel
+
+<link rel="stylesheet" href="~/css/Workouts/WorkoutsByUserId.css" asp-append-version="true" />
+@{
+    ViewData["Title"] = "My workouts";
+}
+
+<h1 class="heading-text">Your workouts:</h1>
+
+<hr />
+
+<div class="conatiner">
+    <div class="wrap">
+        @foreach (var workout in this.Model.Workouts)
+        {
+            <div class="box one">
+                <div class="date">
+                    <h4>6/29/18</h4>
+                </div>
+                <h1>@workout.Name</h1>
+            </div>
+        }
+    </div>
+</div>
+
+<hr />
+
+<div class="btn-container">
+    <a asp-controller="Workouts" asp-action="Create" class="button btn-add">Add workout</a>
+    <a class="button btn-delete">Delete workout</a>
+</div>
