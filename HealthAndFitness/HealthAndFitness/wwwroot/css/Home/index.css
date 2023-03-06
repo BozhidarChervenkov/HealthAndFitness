@@ -22,17 +22,17 @@
 
 .title-text .paragraph {
     font-size: 20px;
+    margin-bottom: 60px;
 }
 
 .title-text .button {
     background-color: var(--red-clr);
     color: var(--white-text-clr);
     text-decoration:none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    margin-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
     border-radius: 10px;
     font-size: 18px;
 }

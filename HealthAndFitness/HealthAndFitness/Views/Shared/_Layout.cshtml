@@ -24,12 +24,21 @@
                 <li>
                     <a class="active" asp-controller="Home" asp-action="Index">HOMEPAGE</a>
                 </li>
-                <li>
-                    <a  asp-controller="Exercises" asp-action="Create">CREATE EXERCISE</a>
-                </li>
+                @if (User.Identity!.IsAuthenticated)
+                {
+                    <li>
+                        <a asp-controller="Exercises" asp-action="Create">CREATE EXERCISE</a>
+                    </li>
+                }
                 <li>
                     <a asp-controller="Exercises" asp-action="ByMuscleGroup">EXERCISES</a>
                 </li>
+                @if (User.Identity!.IsAuthenticated)
+                {
+                    <li>
+                        <a asp-controller="Workouts" asp-action="All">MY WORKOUTS</a>
+                    </li>
+                }
                 <partial name="_LoginPartial" />
             </ul>
 
