@@ -22,6 +22,10 @@
 
         public ApplicationUser AddedByUser { get; set; }
 
+        public DateTime CreatedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
         public ICollection<Exercise> Exercises { get; set; }
     }
 }

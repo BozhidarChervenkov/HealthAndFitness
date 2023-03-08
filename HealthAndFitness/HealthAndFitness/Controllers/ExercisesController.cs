@@ -69,5 +69,20 @@
 
             return this.View(exercises);
         }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var isWorkoutDeleted = this.exerciseService.Delete(id);
+
+            if (await isWorkoutDeleted == false)
+            {
+                ViewBag.ErrorMessage = $"Exercise with id {id} cannot be found!";
+                return this.View("NotFound");
+            }
+
+            return this.RedirectToAction("Index", "Home");
+        }
     }
 }

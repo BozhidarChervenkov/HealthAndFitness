@@ -7,5 +7,7 @@
         Task<int> Create(CreateWorkoutInputModel inputModel, string userId);
 
         Task<WorkoutListViewModel> GetWorkoutsByUserId(string userId);
-	}
+
+        Task<bool> Delete(int id);
+    }
 }

@@ -20,7 +20,8 @@
             {
                 Name = inputModel.Name,
                 ImageUrl = inputModel.ImageUrl,
-                AddedByUserId = userId
+                AddedByUserId = userId,
+                CreatedOn = DateTime.UtcNow
             };
 
             await this.context.Workouts.AddAsync(workout);
@@ -32,11 +33,12 @@
 		public async Task<WorkoutListViewModel> GetWorkoutsByUserId(string userId)
 		{
             var workouts = await context.Workouts
-                .Where(w => w.AddedByUserId == userId)
+                .Where(w => w.AddedByUserId == userId && w.IsDeleted == false)
                 .Select(w => new WorkoutInListViewModel
                 {
                     Name = w.Name,
-                    ImageUrl = w.ImageUrl
+                    ImageUrl = w.ImageUrl,
+                    CreatedOn = w.CreatedOn
                 })
                 .ToListAsync();
 
@@ -47,5 +49,23 @@
 
             return viewModel;
 		}
-	}
+
+        public async Task<bool> Delete(int id)
+        {
+            var workout = this.context.Workouts
+                .FirstOrDefault(c => c.Id == id);
+
+            if (workout == null)
+            {
+                return false;
+            }
+            else
+            {
+                workout.IsDeleted = true;
+                await this.context.SaveChangesAsync();
+
+                return true;
+            }
+        }
+    }
 }

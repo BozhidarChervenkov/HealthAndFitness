@@ -8,20 +8,29 @@
 <div class="card-container">
     <h1 class="title">@Model.MuscleGroupName exercises:</h1>
     <hr>
-    @foreach (var exercise in this.Model.Exercises)
+
+    @if (Model.Exercises.Count() != 0)
     {
-        <div class="card">
-            <img class="card-img" src="@exercise.ImageUrl">
-            <div class="card_description">
-                <div><strong>Name: </strong>@exercise.Name</div>
-                <div><strong>Created on: </strong>@exercise.CreatedOn</div>
-                <div><strong>Added by: </strong>@exercise.AddedByUsername</div>
-                <div class="card-buttons">
-                    <a asp-controller="Exercises" asp-action="ById" asp-route-exerciseId="@exercise.Id" class="details-button">Check it out</a>
-                    <a class="add-button">Add to your plan</a>
+        @foreach (var exercise in this.Model.Exercises)
+        {
+            <div class="card">
+                <img class="card-img" src="@exercise.ImageUrl">
+                <div class="card_description">
+                    <div><strong>Name: </strong>@exercise.Name</div>
+                    <div><strong>Created on: </strong>@exercise.CreatedOn</div>
+                    <div><strong>Added by: </strong>@exercise.AddedByUsername</div>
+                    <div class="card-buttons">
+                        <a asp-controller="Exercises" asp-action="ById" asp-route-exerciseId="@exercise.Id" class="details-button">Check it out</a>
+                        <a class="add-button">Add to your plan</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     }
+    else
+    {
+        <h1 class="no-exercises-message">No exercises added yet!</h1>
+    }
+    
     <hr>
 </div>

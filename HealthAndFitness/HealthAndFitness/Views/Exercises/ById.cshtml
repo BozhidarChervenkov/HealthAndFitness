@@ -60,10 +60,10 @@
         </div>
     </div>
 
-    <button class="btn-add">Add to your plan</button>
+    <a asp-controller="" asp-action="" asp-route-id="@Model.Id" class="button btn-add">Add to your workout</a>
     @if (Model.CurrentUserId == Model.AddedByUser.Id)
     {
-        <button class="btn-delete">Delete exercise</button>
+        <a asp-controller="Exercises" asp-action="Delete" asp-route-id="@Model.Id" class="button btn-delete">Delete exercise</a>
     }
 
 </div>

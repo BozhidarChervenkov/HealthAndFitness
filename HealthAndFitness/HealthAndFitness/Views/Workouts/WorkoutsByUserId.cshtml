@@ -9,23 +9,29 @@
 
 <hr />
 
-<div class="conatiner">
-    <div class="wrap">
-        @foreach (var workout in this.Model.Workouts)
-        {
-            <div class="box one">
-                <div class="date">
-                    <h4>6/29/18</h4>
+@if (Model.Workouts.Count() !=0)
+{
+    <div class="conatiner">
+        <div class="wrap">
+            @foreach (var workout in this.Model.Workouts)
+            {
+                <div class="box one">
+                    <div class="date">
+                        <h4>@workout.CreatedOn</h4>
+                    </div>
+                    <h1>@workout.Name</h1>
                 </div>
-                <h1>@workout.Name</h1>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
+}
+else
+{
+ <h1 class="no-workouts-message">No workouts added yet!</h1>   
+}
 
 <hr />
 
 <div class="btn-container">
     <a asp-controller="Workouts" asp-action="Create" class="button btn-add">Add workout</a>
-    <a class="button btn-delete">Delete workout</a>
 </div>

@@ -9,5 +9,7 @@ namespace HealthAndFitness.ViewModels.Workouts
         public string ImageUrl { get; set; }
 
         public ApplicationUser AddedByUser { get; set; }
+
+        public DateTime CreatedOn { get; set; }
     }
 }

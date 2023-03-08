@@ -32,7 +32,7 @@
     font-size: 25px;
 }
 
-button {
+.button {
     border: none;
     color: black;
     padding: 15px 32px;
@@ -42,6 +42,7 @@ button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btn-add{

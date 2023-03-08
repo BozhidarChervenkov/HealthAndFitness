@@ -65,3 +65,11 @@
 .add-button {
     background-color: yellow;
 }
+
+.no-exercises-message {
+    color: yellow;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 14rem;
+    margin-bottom: 14rem;
+}

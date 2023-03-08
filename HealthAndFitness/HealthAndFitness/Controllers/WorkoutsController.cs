@@ -6,7 +6,8 @@
     using HealthAndFitness.Models;
     using HealthAndFitness.Services.Workouts;
     using HealthAndFitness.ViewModels.Workouts;
-    
+    using Microsoft.AspNetCore.Authorization;
+
     public class WorkoutsController : Controller
     {
         private readonly IWorkoutService workoutService;
@@ -26,12 +27,14 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {
             return this.View();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(CreateWorkoutInputModel inputModel)
         {
@@ -40,6 +43,21 @@
             await this.workoutService.Create(inputModel, userId);
 
             return this.RedirectToAction("WorkoutsByUserId", "Workouts");
-        }     
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var isWorkoutDeleted = this.workoutService.Delete(id);
+
+            if (await isWorkoutDeleted == false)
+            {
+                ViewBag.ErrorMessage = $"Workout with id {id} cannot be found!";
+                return this.View("NotFound");
+            }
+
+            return this.RedirectToAction("WorkoutsByUserId", "Workouts");
+        }
     }
 }

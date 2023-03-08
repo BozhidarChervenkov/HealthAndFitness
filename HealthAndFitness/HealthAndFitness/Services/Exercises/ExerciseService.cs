@@ -38,6 +38,24 @@
             return exercise.Id;
         }
 
+        public async Task<bool> Delete(int id)
+        {
+            var exercise = this.context.Exercises
+                .FirstOrDefault(c => c.Id == id);
+
+            if (exercise == null)
+            {
+                return false;
+            }
+            else
+            {
+                exercise.IsDeleted = true;
+                await this.context.SaveChangesAsync();
+
+                return true;
+            }
+        }
+
         public async Task<ExerciseByIdViewModel> GetExerciseById(int exerciseId)
         {
             var viewModel = await this.context.Exercises
@@ -66,7 +84,7 @@
                 .FirstOrDefaultAsync();
 
             var exercisesInList = await this.context.Exercises
-                .Where(e => e.MuscleGroupId == muscleGroupId)
+                .Where(e => e.MuscleGroupId == muscleGroupId && e.IsDeleted == false)
                 .Select(e => new ExerciseInListViewModel
                 {
                     Id = e.Id,
