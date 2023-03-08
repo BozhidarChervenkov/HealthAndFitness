@@ -2,6 +2,8 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    using static GlobalConstants.GlobalConstants;
+
     public class Workout
     {
         public Workout()
@@ -13,9 +15,13 @@
         public int Id { get; set; }
 
         [Required]
+        [MinLength(WorkoutNameMinLenght)]
+        [MaxLength(WorkoutNameMaxLenght)]
         public string Name { get; set; }
 
         [Required]
+        [MinLength(ImageUrlMinLenght)]
+        [MaxLength(ImageUrlMaxLenght)]
         public string ImageUrl { get; set; }
 
         public string AddedByUserId { get; set; }

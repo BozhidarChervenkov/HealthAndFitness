@@ -19,14 +19,6 @@
             this.userManager = userManager;
         }
 
-        public async Task<IActionResult> WorkoutsByUserId()
-        {
-			var userId = this.userManager.GetUserId(this.User);
-            var viewModel = await workoutService.GetWorkoutsByUserId(userId);
-
-            return this.View(viewModel);
-        }
-
         [Authorize]
         [HttpGet]
         public IActionResult Create()
@@ -38,6 +30,11 @@
         [HttpPost]
         public async Task<IActionResult> Create(CreateWorkoutInputModel inputModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
             var userId = this.userManager.GetUserId(this.User);
 
             await this.workoutService.Create(inputModel, userId);
@@ -59,5 +56,13 @@
 
             return this.RedirectToAction("WorkoutsByUserId", "Workouts");
         }
+
+        public async Task<IActionResult> WorkoutsByUserId()
+        {
+			var userId = this.userManager.GetUserId(this.User);
+            var viewModel = await workoutService.GetWorkoutsByUserId(userId);
+
+            return this.View(viewModel);
+        }   
     }
 }

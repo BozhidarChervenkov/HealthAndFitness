@@ -10,6 +10,9 @@
         public const int ExerciseDescriptionMinLenght = 30;
         public const int ExerciseDescriptionMaxLenght = 500;
 
+        public const int WorkoutNameMinLenght = 5;
+        public const int WorkoutNameMaxLenght = 35;
+
         public const int ImageUrlMinLenght = 5;
         public const int ImageUrlMaxLenght = 2000;
 
