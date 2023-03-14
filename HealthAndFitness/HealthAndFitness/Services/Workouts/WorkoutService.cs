@@ -3,6 +3,7 @@
     using HealthAndFitness.Data;
     using HealthAndFitness.Models;
     using HealthAndFitness.ViewModels.Workouts;
+    using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.EntityFrameworkCore;
 
     public class WorkoutService : IWorkoutService
@@ -30,7 +31,25 @@
             return workout.Id;
         }
 
-		public async Task<WorkoutListViewModel> GetWorkoutsByUserId(string userId)
+        public async Task<bool> Delete(int id)
+        {
+            var workout = this.context.Workouts
+                .FirstOrDefault(c => c.Id == id);
+
+            if (workout == null)
+            {
+                return false;
+            }
+            else
+            {
+                workout.IsDeleted = true;
+                await this.context.SaveChangesAsync();
+
+                return true;
+            }
+        }
+
+        public async Task<WorkoutListViewModel> GetWorkoutsByUserId(string userId)
 		{
             var workouts = await context.Workouts
                 .Where(w => w.AddedByUserId == userId && w.IsDeleted == false)
@@ -50,22 +69,24 @@
             return viewModel;
 		}
 
-        public async Task<bool> Delete(int id)
+        public async Task AddExerciseToWorkout(int exerciseId, int workoutId)
         {
-            var workout = this.context.Workouts
-                .FirstOrDefault(c => c.Id == id);
+            var workout = await this.context.Workouts
+                .FirstOrDefaultAsync(w => w.Id == workoutId);
 
-            if (workout == null)
-            {
-                return false;
-            }
-            else
-            {
-                workout.IsDeleted = true;
-                await this.context.SaveChangesAsync();
+            var exercise = await this.context.Exercises
+                .FirstOrDefaultAsync(w => w.Id == exerciseId);
 
-                return true;
-            }
+            workout.Exercises.Add(exercise);
+        }
+
+        public async Task<SelectList> WorkoutsSelectList()
+        {
+            var workouts = await this.context.Workouts.OrderBy(bt => bt.Name).ToListAsync();
+
+            var selectList = new SelectList(workouts, "Id", "Name");
+
+            return selectList;
         }
     }
 }

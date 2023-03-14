@@ -8,15 +8,18 @@
     using HealthAndFitness.Services.Exercises;
     using HealthAndFitness.ViewModels.Exercises;
     using System.Security.Claims;
+    using HealthAndFitness.Services.Workouts;
 
     public class ExercisesController : Controller
     {
         private readonly IExerciseService exerciseService;
+        private readonly IWorkoutService workoutsService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public ExercisesController(IExerciseService exerciseService, UserManager<ApplicationUser> userManager)
+        public ExercisesController(IExerciseService exerciseService, IWorkoutService workoutsService, UserManager<ApplicationUser> userManager)
         {
             this.exerciseService = exerciseService;
+            this.workoutsService = workoutsService;
             this.userManager = userManager;
         }
 
@@ -45,6 +48,21 @@
             return this.RedirectToAction("ExerciseById", "Exercises", new { id = exerciseId });
         }
 
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var isWorkoutDeleted = this.exerciseService.Delete(id);
+
+            if (await isWorkoutDeleted == false)
+            {
+                ViewBag.ErrorMessage = $"Exercise with id {id} cannot be found!";
+                return this.View("NotFound");
+            }
+
+            return this.RedirectToAction("Index", "Home");
+        }
+
         [HttpGet]
         public async Task<IActionResult> ById (int exerciseId)
         {
@@ -66,23 +84,9 @@
         public async Task<IActionResult> AllByMuscleGroup(int muscleGroupId)
         {
             var exercises = await this.exerciseService.GetExercisesByMuscleGroup(muscleGroupId);
+            ViewBag.WorkoutsSelectList = await this.workoutsService.WorkoutsSelectList();
 
             return this.View(exercises);
-        }
-
-        [Authorize]
-        [HttpGet]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var isWorkoutDeleted = this.exerciseService.Delete(id);
-
-            if (await isWorkoutDeleted == false)
-            {
-                ViewBag.ErrorMessage = $"Exercise with id {id} cannot be found!";
-                return this.View("NotFound");
-            }
-
-            return this.RedirectToAction("Index", "Home");
         }
     }
 }

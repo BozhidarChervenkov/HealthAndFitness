@@ -19,9 +19,18 @@
                     <div><strong>Name: </strong>@exercise.Name</div>
                     <div><strong>Created on: </strong>@exercise.CreatedOn</div>
                     <div><strong>Added by: </strong>@exercise.AddedByUsername</div>
+                    
                     <div class="card-buttons">
                         <a asp-controller="Exercises" asp-action="ById" asp-route-exerciseId="@exercise.Id" class="details-button">Check it out</a>
-                        <a class="add-button">Add to your plan</a>
+                        
+                        <form asp-controller="Workouts" asp-action="AddExercise">
+                            <input asp-for="ExerciseId" value="@exercise.Id" style="display:none">
+                            <select asp-for="WorkoutId" class="form-control" asp-items="@ViewBag.WorkoutsSelectList">
+                                <option value=" " selected disabled>Add to your workout:</option>
+                                @Model.ExerciseId = exercise.Id;
+                            </select>
+                            <button>Add</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -31,6 +40,6 @@
     {
         <h1 class="no-exercises-message">No exercises added yet!</h1>
     }
-    
+
     <hr>
 </div>

@@ -2,11 +2,12 @@
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
 
     using HealthAndFitness.Models;
     using HealthAndFitness.Services.Workouts;
     using HealthAndFitness.ViewModels.Workouts;
-    using Microsoft.AspNetCore.Authorization;
+    using HealthAndFitness.ViewModels.Exercises;
 
     public class WorkoutsController : Controller
     {
@@ -57,12 +58,23 @@
             return this.RedirectToAction("WorkoutsByUserId", "Workouts");
         }
 
+        [Authorize]
+        [HttpGet]
         public async Task<IActionResult> WorkoutsByUserId()
         {
 			var userId = this.userManager.GetUserId(this.User);
             var viewModel = await workoutService.GetWorkoutsByUserId(userId);
 
             return this.View(viewModel);
-        }   
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> AddExercise(ExerciseListViewModel inputModel)
+        {
+            await workoutService.AddExerciseToWorkout(inputModel.ExerciseId, inputModel.WorkoutId);
+
+            return this.RedirectToAction("ExercisesInWorkout", "Workouts");
+        }
     }
 }
