@@ -55,6 +55,7 @@
                 .Where(w => w.AddedByUserId == userId && w.IsDeleted == false)
                 .Select(w => new WorkoutInListViewModel
                 {
+                    Id = w.Id,
                     Name = w.Name,
                     ImageUrl = w.ImageUrl,
                     CreatedOn = w.CreatedOn

@@ -9,25 +9,27 @@
 
 <hr />
 
-@if (Model.Workouts.Count() !=0)
+@if (Model.Workouts.Count() != 0)
 {
     <div class="conatiner">
         <div class="wrap">
             @foreach (var workout in this.Model.Workouts)
             {
-                <div class="box one">
-                    <div class="date">
-                        <h4>@workout.CreatedOn</h4>
+                <a class="workout-byId-link" asp-controller="Workouts" asp-action="ById" asp-route-workoutId="@workout.Id">
+                    <div class="box one">
+                        <div class="date">
+                            <h4>@workout.CreatedOn</h4>
+                        </div>
+                        <h1>@workout.Name</h1>
                     </div>
-                    <h1>@workout.Name</h1>
-                </div>
+                </a>
             }
         </div>
     </div>
 }
 else
 {
- <h1 class="no-workouts-message">No workouts added yet!</h1>   
+    <h1 class="no-workouts-message">No workouts added yet!</h1>
 }
 
 <hr />

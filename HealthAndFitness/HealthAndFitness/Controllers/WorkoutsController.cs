@@ -68,6 +68,11 @@
             return this.View(viewModel);
         }
 
+        public async Task<IActionResult> ById(int workoutId)
+        {
+            return this.View();
+        }
+
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddExercise(ExerciseListViewModel inputModel)
