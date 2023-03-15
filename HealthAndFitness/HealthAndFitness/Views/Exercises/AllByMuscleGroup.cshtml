@@ -24,12 +24,13 @@
                         <a asp-controller="Exercises" asp-action="ById" asp-route-exerciseId="@exercise.Id" class="details-button">Check it out</a>
                         
                         <form asp-controller="Workouts" asp-action="AddExercise">
+
                             <input asp-for="ExerciseId" value="@exercise.Id" style="display:none">
-                            <select asp-for="WorkoutId" class="form-control" asp-items="@ViewBag.WorkoutsSelectList">
-                                <option value=" " selected disabled>Add to your workout:</option>
-                                @Model.ExerciseId = exercise.Id;
+                            <select class="exercise-dropdown-input" asp-for="WorkoutId" class="form-control" asp-items="@ViewBag.WorkoutsSelectList">
+                                <option value=" " selected disabled>Choose workout...</option>
+                                @*@Model.ExerciseId = exercise.Id;*@
                             </select>
-                            <button>Add</button>
+                            <button class="exercise-add-btn">Add</button>
                         </form>
                     </div>
                 </div>

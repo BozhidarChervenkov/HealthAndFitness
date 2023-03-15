@@ -67,6 +67,7 @@
         public async Task<IActionResult> ById (int exerciseId)
         {
             var viewModel = await this.exerciseService.GetExerciseById(exerciseId);
+            ViewBag.WorkoutsSelectList = await this.workoutsService.WorkoutsSelectList();
 
             var currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             viewModel.CurrentUserId= currentUserId;

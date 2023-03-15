@@ -23,5 +23,9 @@
         public bool IsDeleted { get; set; }
 
         public ICollection<Image> Images { get; set; }
+
+        // Add exercise to workout view model:
+
+        public int WorkoutId { get; set; }
     }
 }

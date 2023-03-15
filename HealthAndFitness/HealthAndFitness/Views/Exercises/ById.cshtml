@@ -60,7 +60,14 @@
         </div>
     </div>
 
-    <a asp-controller="" asp-action="" asp-route-id="@Model.Id" class="button btn-add">Add to your workout</a>
+    <form asp-controller="Workouts" asp-action="AddExercise">
+
+        <select class="exercise-dropdown-input" asp-for="WorkoutId" class="form-control" asp-items="@ViewBag.WorkoutsSelectList">
+            <option value=" " selected disabled>Choose workout...</option>
+        </select>
+        <button class="exercise-add-btn">Add</button>
+    </form>
+
     @if (Model.CurrentUserId == Model.AddedByUser.Id)
     {
         <a asp-controller="Exercises" asp-action="Delete" asp-route-id="@Model.Id" class="button btn-delete">Delete exercise</a>

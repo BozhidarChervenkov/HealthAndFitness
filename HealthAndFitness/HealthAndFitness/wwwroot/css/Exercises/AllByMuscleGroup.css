@@ -56,6 +56,27 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    color: black;
+}
+
+/*Styling for the add exercise to workout dropdown and button*/
+.exercise-dropdown-input {
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: yellow;
+    border: none;
+}
+
+.exercise-add-btn {
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 3px;
+    background-color: lightgreen;
+    border-width: 1px;
+    border: none;
 }
 
 .details-button {

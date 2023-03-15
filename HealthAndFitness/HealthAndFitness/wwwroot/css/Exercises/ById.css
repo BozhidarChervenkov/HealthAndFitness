@@ -45,8 +45,23 @@
     text-decoration: none;
 }
 
-.btn-add{
+/*Styling for the add exercise to workout dropdown and button*/
+.exercise-dropdown-input {
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 16px;
     background-color: yellow;
+    border: none;
+}
+
+.exercise-add-btn {
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 3px;
+    background-color: lightgreen;
+    border: none;
 }
 
 .btn-delete{
