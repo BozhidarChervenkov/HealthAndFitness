@@ -16,7 +16,7 @@
             @foreach (var workout in this.Model.Workouts)
             {
                 <a class="workout-byId-link" asp-controller="Workouts" asp-action="ById" asp-route-workoutId="@workout.Id">
-                    <div class="box one">
+                    <div class="box" style="background: url(@workout.ImageUrl); background-size: cover; background-position: center; object-fit: contain; object-position: center;">
                         <div class="date">
                             <h4>@workout.CreatedOn</h4>
                         </div>

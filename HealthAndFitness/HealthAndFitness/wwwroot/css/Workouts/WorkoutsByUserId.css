@@ -103,14 +103,6 @@
     text-shadow: 0 0 3px rgba(0,0,0,0.9);
 }
 
-.one {
-    background: url('https://source.unsplash.com/900x920');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-}
-
 .workout-byId-link {
     text-decoration: none;
 }
