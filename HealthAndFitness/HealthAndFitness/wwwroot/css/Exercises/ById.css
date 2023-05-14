@@ -5,7 +5,12 @@
     background-size: 100% 100%;
 }
 
-.exercise-title{
+.video-title{
+    text-align: center;
+    color: yellow;
+}
+
+.exercise-title {
     color: yellow;
     text-align: center;
     font-size: 35px;
@@ -67,7 +72,6 @@
 .btn-delete{
     background-color: red;
 }
-
 
 /* Slideshow container */
 .slideshow-container {
