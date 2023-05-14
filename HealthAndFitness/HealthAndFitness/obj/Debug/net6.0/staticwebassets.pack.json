@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\Home\\index.css"
     },
     {
+      "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Workouts\\ById.css",
+      "PackagePath": "staticwebassets\\css\\Workouts\\ById.css"
+    },
+    {
       "Id": "D:\\Web Projects\\HealthAndFitness\\HealthAndFitness\\HealthAndFitness\\wwwroot\\css\\Workouts\\WorkoutsByUserId.css",
       "PackagePath": "staticwebassets\\css\\Workouts\\WorkoutsByUserId.css"
     },

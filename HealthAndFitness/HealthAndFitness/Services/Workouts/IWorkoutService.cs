@@ -1,7 +1,8 @@
 ﻿namespace HealthAndFitness.Services.Workouts
 {
-    using HealthAndFitness.ViewModels.Workouts;
     using Microsoft.AspNetCore.Mvc.Rendering;
+
+    using HealthAndFitness.ViewModels.Workouts;
 
     public interface IWorkoutService
     {
@@ -10,6 +11,8 @@
         Task<bool> Delete(int id);
 
         Task<WorkoutListViewModel> GetWorkoutsByUserId(string userId);
+
+        Task<List<WorkoutExerciseViewModel>> GetWorkoutExercises(int workoutId, string userId);
 
         Task AddExerciseToWorkout(int exerciseId, int workoutId);
 

@@ -8,6 +8,7 @@
     using HealthAndFitness.Services.Workouts;
     using HealthAndFitness.ViewModels.Workouts;
     using HealthAndFitness.ViewModels.Exercises;
+    using System.Security.Claims;
 
     public class WorkoutsController : Controller
     {
@@ -68,9 +69,14 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
+        [HttpGet]
         public async Task<IActionResult> ById(int workoutId)
         {
-            return this.View();
+            var currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var viewModel = await this.workoutService.GetWorkoutExercises(workoutId, currentUserId);
+
+            return this.View(viewModel);
         }
 
         [Authorize]

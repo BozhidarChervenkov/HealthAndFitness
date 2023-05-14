@@ -1,0 +1,36 @@
+﻿body {
+    background-image: url('../../images/fitness-background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+h1{
+    text-align: center;
+}
+
+table {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 21px;
+    background-color: #F6F6F6;
+}
+
+th, td {
+    text-align: center;
+    padding: 20px;
+}
+
+.details-button {
+    padding: 15px 32px;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 21px;
+    margin: 4px 2px;
+    cursor: pointer;
+    color: white;
+    background-color: red;
+}

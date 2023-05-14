@@ -6,6 +6,7 @@
     using HealthAndFitness.Data;
     using HealthAndFitness.Models;
     using HealthAndFitness.ViewModels.Workouts;
+    using HealthAndFitness.ViewModels.Exercises;
 
     public class WorkoutService : IWorkoutService
     {
@@ -51,7 +52,7 @@
         }
 
         public async Task<WorkoutListViewModel> GetWorkoutsByUserId(string userId)
-		{
+        {
             var workouts = await context.Workouts
                 .Where(w => w.AddedByUserId == userId && w.IsDeleted == false)
                 .Select(w => new WorkoutInListViewModel
@@ -69,7 +70,35 @@
             };
 
             return viewModel;
-		}
+        }
+
+        public async Task<List<WorkoutExerciseViewModel>> GetWorkoutExercises(int workoutId, string userId)
+        {
+            var workoutExercisesIds = await this.context.WorkoutExercises
+                .Where(we => we.WorkoutId == workoutId)
+                .Select(we => we.ExerciseId)
+                .ToListAsync();
+
+            var listOfExercises = new List<WorkoutExerciseViewModel>();
+
+            foreach (var exerciseId in workoutExercisesIds)
+            {
+                var exercise = this.context.Exercises
+                    .Where(e => e.Id == exerciseId)
+                    .Select(e => new WorkoutExerciseViewModel
+                    {
+                        Id = e.Id,
+                        Name = e.Name,
+                        AddedByUsername = e.AddedByUser.UserName,
+                        CreatedOn = e.CreatedOn,
+                    })
+                    .First();
+
+                listOfExercises.Add(exercise);
+            }
+
+            return listOfExercises;
+        }
 
         public async Task AddExerciseToWorkout(int exerciseId, int workoutId)
         {

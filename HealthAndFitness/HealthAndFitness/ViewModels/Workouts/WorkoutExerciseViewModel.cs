@@ -1,17 +1,13 @@
-﻿namespace HealthAndFitness.ViewModels.Exercises
+﻿namespace HealthAndFitness.ViewModels.Workouts
 {
-    public class ExerciseInListViewModel
+    public class WorkoutExerciseViewModel
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public int MuscleGroupId { get; set; }
-
         public string AddedByUsername { get; set; }
 
         public DateTime CreatedOn { get; set; }
-
-        public string ImageUrl { get; set; }
     }
 }

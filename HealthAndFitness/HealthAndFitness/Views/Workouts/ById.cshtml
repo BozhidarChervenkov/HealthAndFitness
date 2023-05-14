@@ -1,0 +1,32 @@
+﻿@model List<WorkoutExerciseViewModel>
+
+<link rel="stylesheet" href="~/css/Workouts/ById.css" asp-append-version="true" />
+@{
+    ViewData["Title"] = $"Exercises in workout";
+}
+
+<h1>Exercises in workout</h1>
+
+<hr />
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Added by user</th>
+        <th>Created on</th>
+        <th></th>
+    </tr>
+
+    @foreach (var exercise in Model)
+    {
+        <tr>
+            <td>@exercise.Name</td>
+            <td>@exercise.AddedByUsername</td>
+            <td>@exercise.CreatedOn</td>
+            <td><a asp-controller="Exercises" asp-action="ById" asp-route-exerciseId="@exercise.Id" class="details-button">Check it out</a></td>
+        </tr>
+    }
+
+</table>
+
+<hr />
