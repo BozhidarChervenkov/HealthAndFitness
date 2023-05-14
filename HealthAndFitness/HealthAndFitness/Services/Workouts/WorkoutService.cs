@@ -1,10 +1,11 @@
 ﻿namespace HealthAndFitness.Services.Workouts
 {
+    using Microsoft.AspNetCore.Mvc.Rendering;
+    using Microsoft.EntityFrameworkCore;
+
     using HealthAndFitness.Data;
     using HealthAndFitness.Models;
     using HealthAndFitness.ViewModels.Workouts;
-    using Microsoft.AspNetCore.Mvc.Rendering;
-    using Microsoft.EntityFrameworkCore;
 
     public class WorkoutService : IWorkoutService
     {
@@ -72,13 +73,13 @@
 
         public async Task AddExerciseToWorkout(int exerciseId, int workoutId)
         {
-            var workout = await this.context.Workouts
-                .FirstOrDefaultAsync(w => w.Id == workoutId);
+            await this.context.WorkoutExercises.AddAsync(new WorkoutExercise
+            {
+                ExerciseId = exerciseId,
+                WorkoutId = workoutId
+            });
 
-            var exercise = await this.context.Exercises
-                .FirstOrDefaultAsync(w => w.Id == exerciseId);
-
-            workout.Exercises.Add(exercise);
+            await this.context.SaveChangesAsync();
         }
 
         public async Task<SelectList> WorkoutsSelectList()

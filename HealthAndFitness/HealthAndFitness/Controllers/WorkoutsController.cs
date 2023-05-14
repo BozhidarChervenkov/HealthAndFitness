@@ -79,7 +79,7 @@
         {
             await workoutService.AddExerciseToWorkout(inputModel.ExerciseId, inputModel.WorkoutId);
 
-            return this.RedirectToAction("ExercisesInWorkout", "Workouts");
+            return this.RedirectToAction("ById", "Workouts", new { workoutId = inputModel.WorkoutId });
         }
     }
 }

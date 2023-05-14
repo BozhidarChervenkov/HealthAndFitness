@@ -9,6 +9,7 @@
         public Workout()
         {
             this.Exercises = new HashSet<Exercise>();
+            this.WorkoutExercises = new HashSet<WorkoutExercise>();
         }
 
         [Key]
@@ -33,5 +34,7 @@
         public bool IsDeleted { get; set; }
 
         public ICollection<Exercise> Exercises { get; set; }
+
+        public ICollection<WorkoutExercise> WorkoutExercises { get; set; }
     }
 }

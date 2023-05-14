@@ -9,6 +9,7 @@
         public Exercise()
         {
             this.Images = new HashSet<Image>();
+            this.WorkoutExercises = new HashSet<WorkoutExercise>();
         }
 
         [Key]
@@ -43,5 +44,7 @@
         public bool IsDeleted { get; set; }
 
         public ICollection<Image> Images { get; set; }
+
+        public ICollection<WorkoutExercise> WorkoutExercises { get; set;}
     }
 }

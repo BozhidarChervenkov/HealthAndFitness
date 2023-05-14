@@ -1,11 +1,11 @@
-﻿#nullable disable
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
 
 namespace HealthAndFitness.Migrations
 {
-    using System;
-    using Microsoft.EntityFrameworkCore.Migrations;
-
-    public partial class InitialMigration : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -69,7 +69,7 @@ namespace HealthAndFitness.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Url = table.Column<string>(type: "nvarchar(1500)", maxLength: 1500, nullable: false)
+                    Url = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -183,6 +183,29 @@ namespace HealthAndFitness.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Workouts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(35)", maxLength: 35, nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    AddedByUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Workouts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Workouts_AspNetUsers_AddedByUserId",
+                        column: x => x.AddedByUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Exercises",
                 columns: table => new
                 {
@@ -194,7 +217,8 @@ namespace HealthAndFitness.Migrations
                     VideoId = table.Column<int>(type: "int", nullable: false),
                     AddedByUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    WorkoutId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -217,6 +241,11 @@ namespace HealthAndFitness.Migrations
                         principalTable: "Videos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Exercises_Workouts_WorkoutId",
+                        column: x => x.WorkoutId,
+                        principalTable: "Workouts",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -225,8 +254,8 @@ namespace HealthAndFitness.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Url = table.Column<string>(type: "nvarchar(1500)", maxLength: 1500, nullable: false),
-                    ExerciseId = table.Column<int>(type: "int", nullable: false)
+                    Url = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    ExerciseId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -235,8 +264,29 @@ namespace HealthAndFitness.Migrations
                         name: "FK_Images_Exercises_ExerciseId",
                         column: x => x.ExerciseId,
                         principalTable: "Exercises",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WorkoutExercises",
+                columns: table => new
+                {
+                    ExerciseId = table.Column<int>(type: "int", nullable: false),
+                    WorkoutId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkoutExercises", x => new { x.ExerciseId, x.WorkoutId });
+                    table.ForeignKey(
+                        name: "FK_WorkoutExercises_Exercises_ExerciseId",
+                        column: x => x.ExerciseId,
+                        principalTable: "Exercises",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_WorkoutExercises_Workouts_WorkoutId",
+                        column: x => x.WorkoutId,
+                        principalTable: "Workouts",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -294,9 +344,24 @@ namespace HealthAndFitness.Migrations
                 column: "VideoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Exercises_WorkoutId",
+                table: "Exercises",
+                column: "WorkoutId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Images_ExerciseId",
                 table: "Images",
                 column: "ExerciseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WorkoutExercises_WorkoutId",
+                table: "WorkoutExercises",
+                column: "WorkoutId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Workouts_AddedByUserId",
+                table: "Workouts",
+                column: "AddedByUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -320,19 +385,25 @@ namespace HealthAndFitness.Migrations
                 name: "Images");
 
             migrationBuilder.DropTable(
+                name: "WorkoutExercises");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Exercises");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "MuscleGroups");
 
             migrationBuilder.DropTable(
                 name: "Videos");
+
+            migrationBuilder.DropTable(
+                name: "Workouts");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

@@ -239,6 +239,21 @@ namespace HealthAndFitness.Migrations
                     b.ToTable("Workouts");
                 });
 
+            modelBuilder.Entity("HealthAndFitness.Models.WorkoutExercise", b =>
+                {
+                    b.Property<int>("ExerciseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WorkoutId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ExerciseId", "WorkoutId");
+
+                    b.HasIndex("WorkoutId");
+
+                    b.ToTable("WorkoutExercises");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -427,6 +442,23 @@ namespace HealthAndFitness.Migrations
                     b.Navigation("AddedByUser");
                 });
 
+            modelBuilder.Entity("HealthAndFitness.Models.WorkoutExercise", b =>
+                {
+                    b.HasOne("HealthAndFitness.Models.Exercise", "Exercise")
+                        .WithMany("WorkoutExercises")
+                        .HasForeignKey("ExerciseId")
+                        .IsRequired();
+
+                    b.HasOne("HealthAndFitness.Models.Workout", "Workout")
+                        .WithMany("WorkoutExercises")
+                        .HasForeignKey("WorkoutId")
+                        .IsRequired();
+
+                    b.Navigation("Exercise");
+
+                    b.Navigation("Workout");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -481,11 +513,15 @@ namespace HealthAndFitness.Migrations
             modelBuilder.Entity("HealthAndFitness.Models.Exercise", b =>
                 {
                     b.Navigation("Images");
+
+                    b.Navigation("WorkoutExercises");
                 });
 
             modelBuilder.Entity("HealthAndFitness.Models.Workout", b =>
                 {
                     b.Navigation("Exercises");
+
+                    b.Navigation("WorkoutExercises");
                 });
 #pragma warning restore 612, 618
         }

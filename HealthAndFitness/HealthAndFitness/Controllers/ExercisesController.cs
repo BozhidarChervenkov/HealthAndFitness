@@ -1,5 +1,6 @@
 ﻿namespace HealthAndFitness.Controllers
 {
+    using System.Security.Claims;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,6 @@
     using HealthAndFitness.Models;
     using HealthAndFitness.Services.Exercises;
     using HealthAndFitness.ViewModels.Exercises;
-    using System.Security.Claims;
     using HealthAndFitness.Services.Workouts;
 
     public class ExercisesController : Controller
@@ -45,7 +45,7 @@
 
             var exerciseId = await this.exerciseService.Create(inputModel, userId);
 
-            return this.RedirectToAction("ExerciseById", "Exercises", new { id = exerciseId });
+            return this.RedirectToAction("ById", "Exercises", new { exerciseId = exerciseId });
         }
 
         [Authorize]
