@@ -30,6 +30,9 @@ builder.Services.AddTransient<IWorkoutService, WorkoutService>();
 
 var app = builder.Build();
 
+// Seeding data into db
+app.PrepareDatabase();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
