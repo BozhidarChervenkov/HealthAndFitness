@@ -15,8 +15,6 @@
             var services = serviceScope.ServiceProvider;
 
             MigrateDatabase(services);
-
-            SeedAdministrator(services);
             SeedContextData(services);
 
             return app;
@@ -32,6 +30,32 @@
         public static void SeedContextData(IServiceProvider services)
         {
             var context = services.GetRequiredService<ApplicationDbContext>();
+
+            // Seeding user
+            var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+
+            if (!context.Users.Any())
+            {
+                Task
+               .Run(async () =>
+               {
+                   const string adminEmail = "admin@app.com";
+                   const string adminPassword = "admin12app";
+
+                   var user = new ApplicationUser
+                   {
+                       Id = AdminId,
+                       Email = adminEmail,
+                       UserName = adminEmail,
+                       FirstName = "Admin",
+                       LastName = "Admin"
+                   };
+
+                   await userManager.CreateAsync(user, adminPassword);
+               })
+               .GetAwaiter()
+               .GetResult();
+            }
 
             // Seeding body muscle groups:
             if (!context.MuscleGroups.Any())
@@ -50,6 +74,7 @@
                     );
             }
 
+            // Seeding exercises
             if (!context.Exercises.Any())
             {
                 context.Exercises.AddRange(
@@ -576,6 +601,7 @@
                     });
             }
 
+            // Seeding workouts
             if (!context.Workouts.Any())
             {
                 context.Workouts.AddRange(
@@ -603,31 +629,6 @@
             }
 
             context.SaveChanges();
-        }
-
-        private static void SeedAdministrator(IServiceProvider services)
-        {
-            var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-
-            Task
-                .Run(async () =>
-                {
-                    const string adminEmail = "admin@app.com";
-                    const string adminPassword = "admin12app";
-
-                    var user = new ApplicationUser
-                    {
-                        Id = AdminId,
-                        Email = adminEmail,
-                        UserName = adminEmail,
-                        FirstName = "Admin",
-                        LastName = "Admin"
-                    };
-
-                    await userManager.CreateAsync(user, adminPassword);
-                })
-                .GetAwaiter()
-                .GetResult();
         }
     }
 }
