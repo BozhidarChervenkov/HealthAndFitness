@@ -574,9 +574,35 @@
                         new Image {Url = "https://callisto.ggsrv.com/imgsrv/FastFetch/UBER1/9781410379764_00169" },
                         }
                     });
+            }
 
-                context.SaveChanges();
-            }      
+            if (!context.Workouts.Any())
+            {
+                context.Workouts.AddRange(
+                    new Workout()
+                    {
+                        Name = "Custom Workout 1",
+                        ImageUrl = "https://img.freepik.com/premium-vector/cute-man-lifting-dumbbell-fitness-gym-cartoon-vector-icon-illustration-people-sport-icon-isolated_138676-5450.jpg",
+                        AddedByUserId = AdminId,
+                        CreatedOn = DateTime.UtcNow
+                    },
+                    new Workout()
+                    {
+                        Name = "Custom Workout 2",
+                        ImageUrl = "https://img.freepik.com/premium-vector/cute-cat-workout-cartoon-illustration_607277-29.jpg?w=2000",
+                        AddedByUserId = AdminId,
+                        CreatedOn = DateTime.UtcNow
+                    },
+                    new Workout()
+                    {
+                        Name = "Custom Workout 3",
+                        ImageUrl = "https://img.freepik.com/premium-vector/cute-carrot-workout-cartoon-vector-icon-illustration-sport-vegetable-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-1445.jpg",
+                        AddedByUserId = AdminId,
+                        CreatedOn = DateTime.UtcNow
+                    });
+            }
+
+            context.SaveChanges();
         }
 
         private static void SeedAdministrator(IServiceProvider services)
