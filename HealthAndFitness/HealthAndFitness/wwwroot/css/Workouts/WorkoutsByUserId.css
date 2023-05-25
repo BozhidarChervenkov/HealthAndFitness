@@ -32,10 +32,20 @@
     background-color: green;
 }
 
-.no-workouts-message{
+.btn-delete{
+    position: relative;
+    top: 13rem;
+    padding: 5px;
+    border: none;
+    text-decoration: none;
+    background-color: red;
+    color: white;
+}
+
+.no-workouts-message {
     color: yellow;
     font-size: 35px;
-    text-align:center;
+    text-align: center;
     margin-top: 14rem;
     margin-bottom: 14rem;
 }

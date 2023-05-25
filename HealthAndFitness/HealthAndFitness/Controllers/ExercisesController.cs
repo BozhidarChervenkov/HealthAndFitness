@@ -52,9 +52,9 @@
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var isWorkoutDeleted = this.exerciseService.Delete(id);
+            var isExerciseDeleted = await this.exerciseService.Delete(id);
 
-            if (await isWorkoutDeleted == false)
+            if (isExerciseDeleted == false)
             {
                 ViewBag.ErrorMessage = $"Exercise with id {id} cannot be found!";
                 return this.View("NotFound");

@@ -6,7 +6,6 @@
     using HealthAndFitness.Data;
     using HealthAndFitness.Models;
     using HealthAndFitness.ViewModels.Workouts;
-    using HealthAndFitness.ViewModels.Exercises;
 
     public class WorkoutService : IWorkoutService
     {

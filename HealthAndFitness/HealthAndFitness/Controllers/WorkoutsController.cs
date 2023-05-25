@@ -46,13 +46,13 @@
 
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int workoutId)
         {
-            var isWorkoutDeleted = this.workoutService.Delete(id);
+            var isWorkoutDeleted = await this.workoutService.Delete(workoutId);
 
-            if (await isWorkoutDeleted == false)
+            if (isWorkoutDeleted == false)
             {
-                ViewBag.ErrorMessage = $"Workout with id {id} cannot be found!";
+                ViewBag.ErrorMessage = $"Workout with id {workoutId} cannot be found!";
                 return this.View("NotFound");
             }
 

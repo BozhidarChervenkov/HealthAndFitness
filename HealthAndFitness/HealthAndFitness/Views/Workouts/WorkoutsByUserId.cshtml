@@ -21,9 +21,9 @@
                             <h4>@workout.CreatedOn</h4>
                         </div>
                         <h1>@workout.Name</h1>
-                        <button class="close-button" aria-label="Close alert" type="button" data-close>
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <a asp-controller="Workouts" asp-action="Delete" asp-route-workoutId="@workout.Id" class="btn-delete">
+                            <span aria-hidden="true">Delete workout</span>
+                        </a>
                     </div>
                 </a>
             }
