@@ -607,21 +607,21 @@
                 context.Workouts.AddRange(
                     new Workout()
                     {
-                        Name = "Custom Workout 1",
+                        Name = "Chest & Upper body",
                         ImageUrl = "https://img.freepik.com/premium-vector/cute-man-lifting-dumbbell-fitness-gym-cartoon-vector-icon-illustration-people-sport-icon-isolated_138676-5450.jpg",
                         AddedByUserId = AdminId,
                         CreatedOn = DateTime.UtcNow
                     },
                     new Workout()
                     {
-                        Name = "Custom Workout 2",
+                        Name = "Back and Biceps",
                         ImageUrl = "https://img.freepik.com/premium-vector/cute-cat-workout-cartoon-illustration_607277-29.jpg?w=2000",
                         AddedByUserId = AdminId,
                         CreatedOn = DateTime.UtcNow
                     },
                     new Workout()
                     {
-                        Name = "Custom Workout 3",
+                        Name = "Legs & Core",
                         ImageUrl = "https://img.freepik.com/premium-vector/cute-carrot-workout-cartoon-vector-icon-illustration-sport-vegetable-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-1445.jpg",
                         AddedByUserId = AdminId,
                         CreatedOn = DateTime.UtcNow
