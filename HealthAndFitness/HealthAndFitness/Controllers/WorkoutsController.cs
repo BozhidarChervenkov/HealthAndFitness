@@ -1,5 +1,6 @@
 ﻿namespace HealthAndFitness.Controllers
 {
+    using System.Security.Claims;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
@@ -8,7 +9,6 @@
     using HealthAndFitness.Services.Workouts;
     using HealthAndFitness.ViewModels.Workouts;
     using HealthAndFitness.ViewModels.Exercises;
-    using System.Security.Claims;
 
     public class WorkoutsController : Controller
     {
@@ -81,11 +81,35 @@
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> AddExercise(ExerciseListViewModel inputModel)
+        public async Task<IActionResult> AddExerciseFromAllMuscleGroup(ExerciseListViewModel inputModel)
         {
             await workoutService.AddExerciseToWorkout(inputModel.ExerciseId, inputModel.WorkoutId);
 
             return this.RedirectToAction("ById", "Workouts", new { workoutId = inputModel.WorkoutId });
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> AddExerciseFromById(ExerciseByIdViewModel inputModel)
+        {
+            await workoutService.AddExerciseToWorkout(inputModel.Id, inputModel.WorkoutId);
+
+            return this.RedirectToAction("ById", "Workouts", new { workoutId = inputModel.WorkoutId });
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> RemoveExercise(int workoutId, int exerciseId)
+        {
+            var isExerciseRemoved = await this.workoutService.RemoveExerciseFromWorkout(workoutId, exerciseId);
+
+            if (isExerciseRemoved == false)
+            {
+                ViewBag.ErrorMessage = $"Exercise in workout, with id {exerciseId} cannot be found!";
+                return this.View("NotFound");
+            }
+
+            return this.RedirectToAction("WorkoutsByUserId", "Workouts");
         }
     }
 }

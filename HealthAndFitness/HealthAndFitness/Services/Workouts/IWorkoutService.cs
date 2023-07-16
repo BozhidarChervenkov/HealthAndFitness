@@ -16,6 +16,8 @@
 
         Task AddExerciseToWorkout(int exerciseId, int workoutId);
 
+        Task<bool> RemoveExerciseFromWorkout(int workoutId, int exerciseId);
+
         Task<SelectList> WorkoutsSelectList();
     }
 }

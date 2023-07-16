@@ -23,7 +23,10 @@
             <td>@exercise.Name</td>
             <td>@exercise.AddedByUsername</td>
             <td>@exercise.CreatedOn</td>
-            <td><a asp-controller="Exercises" asp-action="ById" asp-route-exerciseId="@exercise.Id" class="details-button">Check it out</a></td>
+            <td>
+                <a asp-controller="Exercises" asp-action="ById" asp-route-exerciseId="@exercise.Id" class="details-button">Check it out</a>
+                <a asp-controller="Workouts" asp-action="RemoveExercise" asp-route-workoutId="@exercise.WorkoutId" asp-route-exerciseId="@exercise.Id" class="remove-button">Remove</a>
+            </td>
         </tr>
     }
 

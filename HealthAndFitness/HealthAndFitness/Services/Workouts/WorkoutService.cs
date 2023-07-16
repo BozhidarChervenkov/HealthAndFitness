@@ -74,7 +74,7 @@
         public async Task<List<WorkoutExerciseViewModel>> GetWorkoutExercises(int workoutId, string userId)
         {
             var workoutExercisesIds = await this.context.WorkoutExercises
-                .Where(we => we.WorkoutId == workoutId)
+                .Where(we => we.WorkoutId == workoutId && we.IsDeleted == false)
                 .Select(we => we.ExerciseId)
                 .ToListAsync();
 
@@ -87,6 +87,7 @@
                     .Select(e => new WorkoutExerciseViewModel
                     {
                         Id = e.Id,
+                        WorkoutId = workoutId,
                         Name = e.Name,
                         AddedByUsername = e.AddedByUser.UserName,
                         CreatedOn = e.CreatedOn,
@@ -108,6 +109,24 @@
             });
 
             await this.context.SaveChangesAsync();
+        }
+
+        public async Task<bool> RemoveExerciseFromWorkout(int workoutId, int exerciseId)
+        {
+            var exercise = this.context.WorkoutExercises
+                .FirstOrDefault(we=>we.WorkoutId == workoutId && we.ExerciseId == exerciseId);
+
+            if (exercise == null)
+            {
+                return false;
+            }
+            else
+            {
+                exercise.IsDeleted = true;
+                await this.context.SaveChangesAsync();
+
+                return true;
+            }
         }
 
         public async Task<SelectList> WorkoutsSelectList()

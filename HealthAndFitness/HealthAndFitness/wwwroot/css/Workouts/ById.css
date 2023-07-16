@@ -32,5 +32,18 @@ th, td {
     margin: 4px 2px;
     cursor: pointer;
     color: white;
+    background-color: green;
+}
+
+.remove-button {
+    padding: 15px 32px;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 21px;
+    margin: 4px 2px;
+    cursor: pointer;
+    color: white;
     background-color: red;
 }

@@ -64,8 +64,9 @@
         </div>
     </div>
 
-    <form asp-controller="Workouts" asp-action="AddExercise">
+    <form asp-controller="Workouts" asp-action="AddExerciseFromById">
 
+        <input asp-for="Id" value="@Model.Id" style="display:none">
         <select class="exercise-dropdown-input" asp-for="WorkoutId" class="form-control" asp-items="@ViewBag.WorkoutsSelectList">
             <option value=" " selected disabled>Choose workout...</option>
         </select>

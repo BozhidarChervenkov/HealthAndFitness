@@ -13,5 +13,7 @@
         public int WorkoutId { get; set; }
 
         public Workout Workout { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

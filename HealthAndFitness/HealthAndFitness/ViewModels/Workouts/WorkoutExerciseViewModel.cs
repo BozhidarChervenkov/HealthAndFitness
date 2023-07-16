@@ -4,6 +4,8 @@
     {
         public int Id { get; set; }
 
+        public int WorkoutId { get; set; }
+
         public string Name { get; set; }
 
         public string AddedByUsername { get; set; }
